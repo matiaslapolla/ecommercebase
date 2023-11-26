@@ -1,21 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import CtaImage from "@/assets/cta-image.png";
 
 type Props = {};
 
 const CTASection = (props: Props) => {
 	return (
 		<div className="bg-white dark:bg-gray-100 w-full">
-			<div className="flex gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl ">
-				<div className="flex gap-8">
+			<div className="flex gap-8 items-center py-2 px-4 mx-auto max-w-screen-xl ">
+				<div className="flex gap-8 items-center">
 					<Image
+						src={CtaImage}
 						className="flex-1"
-						src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
 						alt="dashboard image"
 						width={600}
 						height={600}
 					/>
-					<div className=" flex-1 flex flex-col gap-4">
+					<div className="flex-1 flex flex-col gap-4">
 						<h2 className=" text-4xl tracking-tight font-extrabold text-gray-900">
 							Los beneficios de crear tu tienda online con{" "}
 							<p className="text-primary-400 inline-block hover:rotate-3 transition-all">
