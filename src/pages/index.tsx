@@ -11,7 +11,7 @@ export default function Home() {
 		<main
 			className={`flex min-h-screen flex-col items-center max-w-screen-2xl mx-auto `}
 		>
-			{/* <NavBar /> */}
+			<title>MaximaTienda</title>
 			<Header />
 			<Hero />
 			<CTASection />
