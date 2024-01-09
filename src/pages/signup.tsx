@@ -1,10 +1,21 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 type Props = {};
 
 const Signup = (props: Props) => {
+	const supabaseKeys = {
+		apiUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
+		clientId: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+	};
+
+	const supabaseClient = createClientComponentClient({
+		supabaseUrl: supabaseKeys.apiUrl,
+		supabaseKey: supabaseKeys.clientId,
+	});
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [verifyPassword, setVerifyPassword] = useState("");
@@ -15,7 +26,8 @@ const Signup = (props: Props) => {
 			alert("Passwords do not match");
 			return;
 		}
-		// Submit form
+
+		supabaseClient.auth.signUp({ email, password });
 	};
 
 	return (
